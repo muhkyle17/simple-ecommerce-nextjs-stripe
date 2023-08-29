@@ -12,3 +12,4 @@ Please refer to [my blog post](https://codingwithlucy.hashnode.dev/build-a-shopp
 
 - `main`: starter code (use this if you would like to follow along with the tutorial)
 - `final-version`: final code (what is currently deployed on Vercel)
+# simple-ecommerce-nextjs-stripe
