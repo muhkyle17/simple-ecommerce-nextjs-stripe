@@ -5,6 +5,8 @@ import { useShoppingCart } from 'use-shopping-cart'
 const items = []
 
 export default function ShoppingCart() {
+  const { shouldDisplayCart } = useShoppingCart()
+
   return (
     <div
       className={`bg-white flex flex-col absolute right-3 md:right-9 top-14 w-80 py-4 px-4 shadow-[0_5px_15px_0_rgba(0,0,0,.15)] rounded-md transition-opacity duration-500 ${
