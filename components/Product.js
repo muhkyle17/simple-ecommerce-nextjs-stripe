@@ -9,6 +9,8 @@ export default function Product({ product }) {
 
   const addToCart = () => {
     addItem(product, { count: quantity })
+    // Reset the quantity back to 1 after adding to cart
+    setQuantity(1)
   }
 
   const decreaseQuantity = () => {
