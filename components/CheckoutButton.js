@@ -1,7 +1,29 @@
 import { useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
 
 export default function CheckoutButton() {
   const [status, setStatus] = useState('idle')
+
+  const { redirectToCheckout, cartCount, totalPrice } = useShoppingCart()
+
+  async function handleClick(event) {
+    event.preventDefault()
+    if (cartCount > 0) {
+      setStatus('loading')
+      try {
+        const result = await redirectToCheckout()
+        if (result?.error) {
+          console.error(result)
+          setStatus('redirect-error')
+        }
+      } catch (error) {
+        console.error(error)
+        setStatus('redirect-error')
+      }
+    } else {
+      setStatus('no-items')
+    }
+  }
 
   return (
     <article className='mt-3 flex flex-col'>
